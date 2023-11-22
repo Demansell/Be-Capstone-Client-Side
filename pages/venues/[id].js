@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Button } from 'react-bootstrap';
 import { getSingleVenue, getVenuePeople } from '../../api/venue/venues';
 import PeopleGoingCard from '../../components/PeopleGoingCard';
+
 export default function orderDetails() {
   const router = useRouter();
   const [venueDetails, setVenueDetails] = useState({});
@@ -12,8 +13,9 @@ export default function orderDetails() {
   // TODO: grab firebaseKey from url
   const { id } = router.query;
   // TODO: make call to API layer to get the data
-  useEffect(() => {
-    getSingleVenue(id).then (setVenueDetails);
+  useEffect(() => { 
+    getSingleVenue(id).then(setVenueDetails);
+    console.log(venueDetails)
   }, [id]);
 
   useEffect(() => {
