@@ -28,8 +28,8 @@ export default function orderDetails() {
           <div class="b2">
             <span></span>
             <div class="c3">
-              <h1>{venueDetails.venueName}</h1> 
-              <h4>{venueDetails.description} </h4>
+              <h3>Venue Name: {venueDetails.venueName}</h3> 
+              <h3>About this Venue: {venueDetails.description} </h3>
               <Link href="/items/new" passHref>
         <Button> Add A Person Going</Button>
       </Link>

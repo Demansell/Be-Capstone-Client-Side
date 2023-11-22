@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
+import Link from 'next/link';
 import { deleteSingleVenue } from '../api/venue/venues';
 
 function PeopleGoingCard({ peopleObj }) {
@@ -17,9 +18,10 @@ function PeopleGoingCard({ peopleObj }) {
         <Card.Text>
           {peopleObj.timeGoing}
         </Card.Text>
-        <Button variant="primary">Details</Button>
+        <Link href={`/peoplegoings/${peopleObj.id}`} passHref>
+          <Button variant="primary" type="button" className="copy-btn"> Venue Details </Button>
+        </Link>
         <Button variant="primary">Edit</Button>
-
         <Button variant="danger" type="button" className="copy-btn" onClick={deletePerson}> Delete</Button>
       </Card.Body>
     </Card>
