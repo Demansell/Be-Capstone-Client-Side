@@ -72,6 +72,102 @@ const getVenuePeople = (venueId) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getAllZipcodes = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/Zipcode/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllCities = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueCities/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllClothingType = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueClothingtypes/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllCounties = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueCounties/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllHours = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueHoursOfOperations/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllPrices = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenuePrices/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllVenueTypes = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueTypes/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getAllPaymentTypes = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/Payments/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
   getAllVenues,
   getSingleVenue,
@@ -79,4 +175,12 @@ export {
   updateVenue,
   deleteSingleVenue,
   getVenuePeople,
+  getAllZipcodes,
+  getAllCities,
+  getAllClothingType,
+  getAllCounties,
+  getAllHours,
+  getAllPrices,
+  getAllVenueTypes,
+  getAllPaymentTypes,
 };
