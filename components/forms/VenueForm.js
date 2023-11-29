@@ -14,12 +14,12 @@ import {
 } from '../../api/filter/filters';
 
 const initialState = {
-  id: '',
+  id: null,
   venueName: '',
   description: '',
   venueStreetAddress: '',
   venueImage: '',
-  venuePhoneNumber: '',
+  venuePhoneNumber: 0,
   likedVenue: false,
   vistedVenue: false,
   nextNightOut: false,
@@ -88,7 +88,7 @@ function VenueForm({ venueObj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (venueObj.id) {
+    if (venueObj.id > 0) {
       updateVenue(venueObj.id, formInput)
         .then(() => {
           router.push(`/venues/${venueObj.id}`);
@@ -111,6 +111,16 @@ function VenueForm({ venueObj }) {
           value={formInput.venueName}
           onChange={handleChange}
           required
+        />
+      </FloatingLabel>
+
+      <FloatingLabel controlId="floatingInput1" label="Venue Street Address" className="mb-3">
+        <Form.Control
+          type="text"
+          placeholder="venueStreetAddress"
+          name="venueStreetAddress"
+          value={formInput.venueStreetAddress}
+          onChange={handleChange}
         />
       </FloatingLabel>
 
@@ -148,10 +158,10 @@ function VenueForm({ venueObj }) {
       <FloatingLabel controlId="floatingSelect" label="County">
         <Form.Select
           aria-label="County"
-          name="countyId"
+          name="venueCountyId"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.countyId}
+          value={formInput.venueCountyId}
         >
           <option value="">Select a category</option>
           {counties.map((county) => (
@@ -288,10 +298,10 @@ function VenueForm({ venueObj }) {
       <FloatingLabel controlId="floatingSelect" label="Type">
         <Form.Select
           aria-label="Type"
-          name="paymentTypeId"
+          name="paymentId"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.paymentTypeId}
+          value={formInput.paymentId}
         >
           <option value="">Select a category</option>
           {types.map((type) => (

@@ -2,12 +2,12 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
-import { deleteSingleVenue } from '../api/venue/venues';
+import { deleteSinglePerson } from '../api/peopleGoing/peopleGoings';
 
 function PeopleGoingCard({ peopleObj }) {
   const deletePerson = () => {
     if (window.confirm(`Delete ${peopleObj.name}?`)) {
-      deleteSingleVenue(peopleObj.id).then();
+      deleteSinglePerson(peopleObj.id).then();
     }
   };
 
