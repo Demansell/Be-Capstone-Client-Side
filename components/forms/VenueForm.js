@@ -14,7 +14,6 @@ import {
 } from '../../api/filter/filters';
 
 const initialState = {
-  id: null,
   venueName: '',
   description: '',
   venueStreetAddress: '',
