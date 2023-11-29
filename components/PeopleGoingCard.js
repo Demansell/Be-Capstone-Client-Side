@@ -21,7 +21,9 @@ function PeopleGoingCard({ peopleObj }) {
         <Link href={`/peoplegoings/${peopleObj.id}`} passHref>
           <Button variant="primary" type="button" className="copy-btn"> Venue Details </Button>
         </Link>
-        <Button variant="primary">Edit</Button>
+        <Link href={`/peoplegoings/edit/${peopleObj.id}`} passHref>
+          <Button variant="info">Edit Person</Button>
+        </Link>
         <Button variant="danger" type="button" className="copy-btn" onClick={deletePerson}> Delete</Button>
       </Card.Body>
     </Card>

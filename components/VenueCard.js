@@ -22,8 +22,9 @@ function VenueCard({ venueObj }) {
         <Link href={`/venues/${venueObj.id}`} passHref>
           <Button variant="primary" type="button" className="copy-btn"> Venue Details </Button>
         </Link>
-        <Button variant="primary">Edit</Button>
-
+        <Link href={`/venues/edit/${venueObj.id}`} passHref>
+          <Button variant="info">Edit Order</Button>
+        </Link>
         <Button variant="danger" type="button" className="copy-btn" onClick={deleteVenue}> Delete Order</Button>
       </Card.Body>
     </Card>
