@@ -27,7 +27,7 @@ function Home() {
       <Link href="/counties/county" passHref>
         <Button variant="outline-dark" size="lg">Counties</Button>
       </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/hours/hour" passHref>
         <Button variant="outline-dark" size="lg">Hours of Operations</Button>
       </Link>
       <Link href="/closedOrders/closedOrder" passHref>

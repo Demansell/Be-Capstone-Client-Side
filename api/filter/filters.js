@@ -72,6 +72,30 @@ const getCountiesById = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getVenuesByVenueHoursofOperationId = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenuesByVenueHoursofOperationId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getHoursById = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueHoursofOperationId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
   getVenuesByCityId,
   getCityById,
@@ -79,4 +103,6 @@ export {
   getClothingById,
   getVenuesByVenueCountyId,
   getCountiesById,
+  getVenuesByVenueHoursofOperationId,
+  getHoursById,
 };

@@ -2,16 +2,16 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import CityCard from '../../components/CityCard';
-import { getAllVenueCities } from '../../api/filter/filters';
+import { getAllCities } from '../../api/venue/venues';
 
 
 function CityPage() {
     const [cities, setCities] = useState([]);
-    const getAllCities = () => {
-      getAllVenueCities().then(setCities);
+    const getAllCity = () => {
+        getAllCities().then(setCities);
     };
     useEffect(() => {
-        getAllCities();
+        getAllCity();
     }, []);
     return (
         <>

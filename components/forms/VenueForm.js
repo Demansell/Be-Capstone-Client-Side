@@ -6,12 +6,9 @@ import Form from 'react-bootstrap/Form';
 import { Button } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import {
-  createVenue, getAllPaymentTypes, getAllVenues, updateVenue,
+  createVenue, getAllCities, getAllClothingType, getAllCounties, getAllHours, getAllPaymentTypes, getAllPrices, getAllVenueTypes, getAllVenues, getAllZipcodes, updateVenue,
 }
   from '../../api/venue/venues';
-import {
-  getAllVenueCities, getAllVenueClothingTypes, getAllVenueCounties, getAllVenueHoursOfOperations, getAllVenuePrices, getAllVenueTypes, getAllZipcodes,
-} from '../../api/filter/filters';
 
 const initialState = {
   venueName: '',
@@ -49,23 +46,23 @@ function VenueForm({ venueObj }) {
   }, []);
 
   useEffect(() => {
-    getAllVenueCities().then((data) => setCities(data));
+    getAllCities().then((data) => setCities(data));
   }, []);
 
   useEffect(() => {
-    getAllVenueClothingTypes().then((data) => setClothing(data));
+    getAllClothingType().then((data) => setClothing(data));
   }, []);
 
   useEffect(() => {
-    getAllVenueCounties().then((data) => setCounties(data));
+    getAllCounties().then((data) => setCounties(data));
   }, []);
 
   useEffect(() => {
-    getAllVenueHoursOfOperations().then((data) => setHours(data));
+    getAllHours().then((data) => setHours(data));
   }, []);
 
   useEffect(() => {
-    getAllVenuePrices().then((data) => setPrices(data));
+    getAllPrices().then((data) => setPrices(data));
   }, []);
 
   useEffect(() => {

@@ -1,17 +1,18 @@
 /* eslint-disable */
 import React from 'react';
 import { useEffect, useState } from 'react';
-import {  getAllCounties } from '../../api/venue/venues';
-import CountyCard from '../../components/CountyCard';
+import { getAllHours } from '../../api/venue/venues';
+import ClothingCard from '../../components/ClothingCard';
+import HoursCard from '../../components/HoursCard';
 
 
-function CountyPage() {
-    const [county, setCounty] = useState([]);
-    const getAllCounty = () => {
-      getAllCounties().then(setCounty);
+function HoursPage() {
+    const [hour, setHour] = useState([]);
+    const getAllHour = () => {
+      getAllHours().then(setHour);
     };
     useEffect(() => {
-        getAllCounty();
+        getAllHour();
     }, []);
     return (
         <>
@@ -25,13 +26,13 @@ function CountyPage() {
                     margin: '0 auto',
                 }}
             >
-                <h1>Counties:</h1>
+                <h1>Hour of Operations:</h1>
             </div>
             <div className="flex-wrap" style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-around' }}>
-                {county?.map((counties) => (
-                    <CountyCard countyObj={counties} />))}
+                {hour?.map((hours) => (
+                    <HoursCard hoursObj={hours} />))}
             </div>
         </>
     );
 }
-export default CountyPage;
+export default HoursPage;
