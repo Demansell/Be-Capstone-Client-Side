@@ -92,6 +92,7 @@ function VenueForm({ venueObj }) {
         .then(() => {
           router.push(`/venues/${venueObj.id}`);
         });
+      console.log(venueObj);
     } else {
       const payload = { ...formInput, uid: user.uid };
       createVenue(payload);

@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import { getSingleVenue, getVenuePeople } from '../../api/venue/venues';
 import PeopleGoingCard from '../../components/PeopleGoingCard';
 
-export default function orderDetails() {
+export default function orderDetails(venueObj) {
   const router = useRouter();
   const [venueDetails, setVenueDetails] = useState({});
   const [people, setPeople] = useState([]);
@@ -32,7 +32,10 @@ export default function orderDetails() {
             <div class="c3">
               <h3>Venue Name: {venueDetails.venueName}</h3> 
               <h3>About this Venue: {venueDetails.description} </h3>
-              <Link href="/items/new" passHref>
+              <Link href={`/venues/edit/${venueObj.id}`} passHref>
+          <Button variant="info">Edit Order</Button>
+        </Link>
+              <Link href="/peoplegoings/new" passHref>
         <Button> Add A Person Going</Button>
       </Link>
       <div className="CommentCardShow d-flex flex-wrap" style={{ marginTop: '20px' }}>

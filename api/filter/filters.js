@@ -24,6 +24,30 @@ const getAllVenueCities = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getVenuesByCityId = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenuesByCityId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getCityById = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/CitiesById/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 const getAllVenueClothingTypes = () => new Promise((resolve, reject) => {
   fetch(`${dbUrl}/api/VenueClothingtypes/`, {
     method: 'GET',
@@ -87,6 +111,8 @@ const getAllVenueTypes = () => new Promise((resolve, reject) => {
 export {
   getAllZipcodes,
   getAllVenueCities,
+  getVenuesByCityId,
+  getCityById,
   getAllVenueClothingTypes,
   getAllVenueCounties,
   getAllVenueHoursOfOperations,

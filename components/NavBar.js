@@ -26,14 +26,11 @@ export default function NavBar() {
             <Link passHref href="/venues/venue">
               <Nav.Link>Venues</Nav.Link>
             </Link>
-            <Link passHref href="/peoplegoings/peopleGoing">
-              <Nav.Link>People Going</Nav.Link>
-            </Link>
             <Link passHref href="/venues/new">
               <Nav.Link>Make Venue</Nav.Link>
             </Link>
-            <Link passHref href="/peoplegoings/new">
-              <Nav.Link>Make Person</Nav.Link>
+            <Link passHref href="/filters/main">
+              <Nav.Link>Filters</Nav.Link>
             </Link>
             <Button variant="danger" onClick={signOut}>
               Sign Out
