@@ -21,10 +21,7 @@ function Home() {
       <Link href="/cities/city" passHref>
         <Button variant="outline-dark" size="lg">City</Button>
       </Link>
-      <Link href="/orders/new" passHref>
-        <Button variant="outline-dark" size="lg">Category</Button>
-      </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/clothing/cloths" passHref>
         <Button variant="outline-dark" size="lg">Clothing Type</Button>
       </Link>
       <Link href="/closedOrders/closedOrder" passHref>
@@ -44,6 +41,15 @@ function Home() {
       </Link>
       <Link href="/closedOrders/closedOrder" passHref>
         <Button variant="outline-dark" size="lg">Zipcode</Button>
+      </Link>
+      <Link href="/closedOrders/closedOrder" passHref>
+        <Button variant="outline-dark" size="lg">Liked Venues</Button>
+      </Link>
+      <Link href="/closedOrders/closedOrder" passHref>
+        <Button variant="outline-dark" size="lg">Visted Venues</Button>
+      </Link>
+      <Link href="/closedOrders/closedOrder" passHref>
+        <Button variant="outline-dark" size="lg">Next Night Out</Button>
       </Link>
     </div>
   );
