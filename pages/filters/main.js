@@ -24,7 +24,7 @@ function Home() {
       <Link href="/clothing/cloths" passHref>
         <Button variant="outline-dark" size="lg">Clothing Type</Button>
       </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/counties/county" passHref>
         <Button variant="outline-dark" size="lg">Counties</Button>
       </Link>
       <Link href="/closedOrders/closedOrder" passHref>
