@@ -144,6 +144,30 @@ const getPricesById = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getVenuesByVenueTypeId = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/GetVenuesByVenueTypeId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getTypesById = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/GetTypesByVenueTypeId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
   getVenuesByCityId,
   getCityById,
@@ -157,4 +181,6 @@ export {
   getVenuesByPaymentTypeId,
   getVenuesByVenuePriceId,
   getPricesById,
+  getVenuesByVenueTypeId,
+  getTypesById,
 };
