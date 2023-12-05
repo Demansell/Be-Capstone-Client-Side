@@ -2,12 +2,17 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import CloseButton from 'react-bootstrap/CloseButton';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { deleteSingleVenue } from '../api/venue/venues';
 
 function VenueCard({ venueObj }) {
+  const router = useRouter();
+
   const deleteVenue = () => {
     if (window.confirm(`Delete ${venueObj.venueName}?`)) {
-      deleteSingleVenue(venueObj.id).then();
+      deleteSingleVenue(venueObj.id)
+        .then(() => router.push('/venues/venue'))
+        .catch((error) => console.error('Error deleting venue:', error));
     }
   };
 

@@ -25,7 +25,7 @@ return (
         <div class="b2">
           <span></span>
           <div class="c3">
-            <h1>{hourDetails.HoursOfOperation}'s Venues</h1> <p style={{ marginButton: '100px' }}></p>
+            <h1>{hourDetails.hoursOfOperation}'s Venues</h1> <p style={{ marginButton: '100px' }}></p>
             <div className="CommentCardShow d-flex flex-wrap" style={{ marginTop: '20px' }}>
               {venues.map((venue) => (
                 <VenueCard key={venue.venueCityId} venueObj={venue} onUpdate={getVenuesByVenueClothingTypeId} />

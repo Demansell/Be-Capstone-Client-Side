@@ -37,15 +37,15 @@ const createVenue = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const updateVenue = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/Venue/${payload.id}`, {
+const updateVenue = (Id, payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/Venue/${Id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(payload),
   })
-    .then((data) => resolve(data))
+    .then(resolve)
     .catch(reject);
 });
 

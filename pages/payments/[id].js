@@ -1,20 +1,20 @@
 /* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { getCountiesById, getVenuesByVenueCountyId } from '../../api/filter/filters';
+import { getPaymentsById, getVenuesByPaymentTypeId } from '../../api/filter/filters';
 import VenueCard from '../../components/VenueCard';
-export default function orderDetails() {
+export default function PaymentDetails() {
   const router = useRouter();
-  const [countiesDetails, setCountiesDetails] = useState({});
+  const [paymentDetails, setPaymentDetails] = useState({});
   const [venues, setVenues] = useState([]);
   const { id } = router.query;
 
   useEffect(() => {
-    getCountiesById(id).then (setCountiesDetails);
+    getPaymentsById(id).then (setPaymentDetails);
   }, [id]);
 
   useEffect(() => {
-    getVenuesByVenueCountyId(id).then(setVenues);
+    getVenuesByPaymentTypeId(id).then(setVenues);
 // eslint-disable-next-line react-hooks/exhaustive-deps
 }, []);
 
@@ -25,10 +25,10 @@ return (
         <div class="b2">
           <span></span>
           <div class="c3">
-            <h1>{countiesDetails.venueCountyName}'s Venues</h1> <p style={{ marginButton: '100px' }}></p>
+            <h1>{paymentDetails.name}'s Venues</h1> <p style={{ marginButton: '100px' }}></p>
             <div className="CommentCardShow d-flex flex-wrap" style={{ marginTop: '20px' }}>
               {venues.map((venue) => (
-                <VenueCard key={venue.venueCountyId} venueObj={venue} onUpdate={getVenuesByVenueCountyId} />
+                <VenueCard key={venue.paymentTypeId} venueObj={venue} onUpdate={getVenuesByPaymentTypeId} />
                 ))}
                 </div>
             <h5></h5>

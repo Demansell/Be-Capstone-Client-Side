@@ -44,13 +44,20 @@ function PeopleForm({ peopleObj }) {
         });
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createPersonGoing(payload);
+      createPersonGoing(payload)
+        .then(() => {
+          router.push('/venues/venue');
+          console.log(formInput);
+        })
+        .catch((error) => {
+          console.error('Error updating movie:', error);
+        });
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{peopleObj.id ? 'Update' : 'Create'} Person or Group Going</h2>
+      <h2 className="text-black mt-5">{peopleObj.id ? 'Update' : 'Add'} Person or Group Going</h2>
 
       <FloatingLabel controlId="floatingSelect" label="Venue">
         <Form.Select
@@ -61,7 +68,7 @@ function PeopleForm({ peopleObj }) {
           value={formInput.venueId} // FIXME: modify code to remove error
           required
         >
-          <option value="">Select a Customer to put this Item on</option>
+          <option value="">Select a Venue to add this person to</option>
           {
             people.map((person) => (
               <option
@@ -98,7 +105,7 @@ function PeopleForm({ peopleObj }) {
       </FloatingLabel>
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{peopleObj.id ? 'Update' : 'Create'} Venue</Button>
+      <Button type="submit">{peopleObj.id ? 'Update' : 'Add'} Person or Group Going</Button>
     </Form>
   );
 }

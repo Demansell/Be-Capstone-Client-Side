@@ -92,13 +92,20 @@ function VenueForm({ venueObj }) {
       console.log(venueObj);
     } else {
       const payload = { ...formInput, uid: user.uid };
-      createVenue(payload);
+      createVenue(payload)
+        .then(() => {
+          router.push('/venues/venue');
+          console.log(formInput);
+        })
+        .catch((error) => {
+          console.error('Error updating movie:', error);
+        });
     }
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h2 className="text-white mt-5">{venueObj.id ? 'Update' : 'Create'} Order</h2>
+      <h2 className="text-black mt-5">{venueObj.id ? 'Update' : 'Add'} Venue</h2>
 
       <FloatingLabel controlId="floatingInput1" label="Venue Name" className="mb-3">
         <Form.Control
@@ -160,7 +167,7 @@ function VenueForm({ venueObj }) {
           className="mb-3"
           value={formInput.venueCountyId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a County</option>
           {counties.map((county) => (
             <option
               key={county.id}
@@ -180,7 +187,7 @@ function VenueForm({ venueObj }) {
           className="mb-3"
           value={formInput.venueZipcodeId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a Zipcode</option>
           {zipcodes.map((zipcode) => (
             <option
               key={zipcode.id}
@@ -194,13 +201,13 @@ function VenueForm({ venueObj }) {
 
       <FloatingLabel controlId="floatingSelect" label="Payment">
         <Form.Select
-          aria-label="Payment"
+          aria-label="Payment Type"
           name="venueZipcodeId"
           onChange={handleChange}
           className="mb-3"
           value={formInput.paymentId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a Payment Type</option>
           {payments.map((payment) => (
             <option
               key={payment.id}
@@ -220,7 +227,7 @@ function VenueForm({ venueObj }) {
           className="mb-3"
           value={formInput.venueCityId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a City</option>
           {cities.map((city) => (
             <option
               key={city.id}
@@ -234,13 +241,13 @@ function VenueForm({ venueObj }) {
 
       <FloatingLabel controlId="floatingSelect" label="Clothing">
         <Form.Select
-          aria-label="Clothing"
+          aria-label="Clothing Type"
           name="venueClothingTypeId"
           onChange={handleChange}
           className="mb-3"
           value={formInput.venueClothingTypeId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a Clothing Type</option>
           {clothing.map((cloth) => (
             <option
               key={cloth.id}
@@ -260,7 +267,7 @@ function VenueForm({ venueObj }) {
           className="mb-3"
           value={formInput.venueHoursofOperationId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a Hours of Operations</option>
           {hours.map((hour) => (
             <option
               key={hour.id}
@@ -280,7 +287,7 @@ function VenueForm({ venueObj }) {
           className="mb-3"
           value={formInput.venuePriceId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a Price</option>
           {prices.map((price) => (
             <option
               key={price.id}
@@ -300,7 +307,7 @@ function VenueForm({ venueObj }) {
           className="mb-3"
           value={formInput.paymentId}
         >
-          <option value="">Select a category</option>
+          <option value="">Select a Type of Venue</option>
           {types.map((type) => (
             <option
               key={type.id}
@@ -312,17 +319,22 @@ function VenueForm({ venueObj }) {
         </Form.Select>
       </FloatingLabel>
 
-      <Form.Check
-        type="switch"
-        id="custom-switch"
-        label="Click if you enjoyed this venue"
-        onChange={() => {
-          setFormInput((prevInput) => ({
-            ...prevInput,
-            likedVenue: !prevInput.likedVenue,
-          }));
-        }}
-      />
+      <Form.Group>
+        <Form.Check
+          type="switch"
+          id="custom-switch"
+          label="Click if you enjoyed this venue"
+          onChange={() => {
+            setFormInput((prevInput) => ({
+              ...prevInput,
+              likedVenue: !prevInput.likedVenue,
+            }));
+          }}
+        >
+          <Form.Check.Input defaultChecked={formInput.likedVenue} />
+          <Form.Check.Label> Click Here if you enjoyed this Venue</Form.Check.Label>
+        </Form.Check>
+      </Form.Group>
 
       <Form.Check
         type="switch"

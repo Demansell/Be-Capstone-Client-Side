@@ -96,6 +96,30 @@ const getHoursById = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getVenuesByPaymentTypeId = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenuesByPaymentTypeId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getPaymentsById = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/PaymentTypeId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
   getVenuesByCityId,
   getCityById,
@@ -105,4 +129,6 @@ export {
   getCountiesById,
   getVenuesByVenueHoursofOperationId,
   getHoursById,
+  getPaymentsById,
+  getVenuesByPaymentTypeId,
 };

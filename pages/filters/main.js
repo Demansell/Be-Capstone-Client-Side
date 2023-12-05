@@ -30,7 +30,7 @@ function Home() {
       <Link href="/hours/hour" passHref>
         <Button variant="outline-dark" size="lg">Hours of Operations</Button>
       </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/payments/payment" passHref>
         <Button variant="outline-dark" size="lg">Payment Type</Button>
       </Link>
       <Link href="/closedOrders/closedOrder" passHref>

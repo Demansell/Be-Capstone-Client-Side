@@ -37,8 +37,8 @@ const createPersonGoing = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const updatePerson = (payload) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/PeopleGoing/${payload.id}`, {
+const updatePerson = (id, payload) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/PeopleGoing/${id}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

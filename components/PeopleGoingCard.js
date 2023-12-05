@@ -2,12 +2,18 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
 import { deleteSinglePerson } from '../api/peopleGoing/peopleGoings';
 
 function PeopleGoingCard({ peopleObj }) {
+  const router = useRouter();
+
   const deletePerson = () => {
     if (window.confirm(`Delete ${peopleObj.name}?`)) {
-      deleteSinglePerson(peopleObj.id).then();
+      deleteSinglePerson(peopleObj.id)
+        .then(() => router.push('/venues/venue'))
+        .catch((error) => console.error('Error deleting venue:', error));
     }
   };
 
@@ -19,7 +25,7 @@ function PeopleGoingCard({ peopleObj }) {
           {peopleObj.timeGoing}
         </Card.Text>
         <Link href={`/peoplegoings/${peopleObj.id}`} passHref>
-          <Button variant="primary" type="button" className="copy-btn"> Venue Details </Button>
+          <Button variant="primary" type="button" className="copy-btn"> Person Details </Button>
         </Link>
         <Link href={`/peoplegoings/edit/${peopleObj.id}`} passHref>
           <Button variant="info">Edit Person</Button>
