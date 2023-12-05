@@ -168,6 +168,30 @@ const getTypesById = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getVenuesByVenueZipcodeId = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenuesByVenueZipcodeId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getZipCodesById = (id) => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VenueZipcodeId/${id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
   getVenuesByCityId,
   getCityById,
@@ -183,4 +207,6 @@ export {
   getPricesById,
   getVenuesByVenueTypeId,
   getTypesById,
+  getVenuesByVenueZipcodeId,
+  getZipCodesById,
 };

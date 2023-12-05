@@ -323,6 +323,7 @@ function VenueForm({ venueObj }) {
         <Form.Check
           type="switch"
           id="custom-switch"
+          checked={formInput.likedVenue}
           label="Click if you enjoyed this venue"
           onChange={() => {
             setFormInput((prevInput) => ({
@@ -330,10 +331,7 @@ function VenueForm({ venueObj }) {
               likedVenue: !prevInput.likedVenue,
             }));
           }}
-        >
-          <Form.Check.Input defaultChecked={formInput.likedVenue} />
-          <Form.Check.Label> Click Here if you enjoyed this Venue</Form.Check.Label>
-        </Form.Check>
+        />
       </Form.Group>
 
       <Form.Check
