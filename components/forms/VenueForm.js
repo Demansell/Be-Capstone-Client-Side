@@ -337,6 +337,7 @@ function VenueForm({ venueObj }) {
       <Form.Check
         type="switch"
         id="custom-switch"
+        checked={formInput.vistedVenue}
         label="Click if you visited this venue"
         onChange={() => {
           setFormInput((prevInput) => ({
@@ -349,6 +350,7 @@ function VenueForm({ venueObj }) {
       <Form.Check
         type="switch"
         id="custom-switch"
+        checked={formInput.nextNightOut}
         label="Click if you want to go to this on the next night out"
         onChange={() => {
           setFormInput((prevInput) => ({
