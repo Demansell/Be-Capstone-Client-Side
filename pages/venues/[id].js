@@ -6,7 +6,7 @@ import { Button } from 'react-bootstrap';
 import { getSingleVenue, getVenuePeople } from '../../api/venue/venues';
 import PeopleGoingCard from '../../components/PeopleGoingCard';
 
-export default function orderDetails(venueObj) {
+export default function orderDetails() {
   const router = useRouter();
   const [venueDetails, setVenueDetails] = useState({});
   const [people, setPeople] = useState([]);
