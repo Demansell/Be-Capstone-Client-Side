@@ -42,13 +42,13 @@ function Home() {
       <Link href="/zipcodes/zipcode" passHref>
         <Button variant="outline-dark" size="lg">Zipcode</Button>
       </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/filters/likedVenues" passHref>
         <Button variant="outline-dark" size="lg">Liked Venues</Button>
       </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/filters/vistedVenues" passHref>
         <Button variant="outline-dark" size="lg">Visted Venues</Button>
       </Link>
-      <Link href="/closedOrders/closedOrder" passHref>
+      <Link href="/filters/nextNightOut" passHref>
         <Button variant="outline-dark" size="lg">Next Night Out</Button>
       </Link>
     </div>

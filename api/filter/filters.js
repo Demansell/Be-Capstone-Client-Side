@@ -192,6 +192,42 @@ const getZipCodesById = (id) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getLikedVenues = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/LikedVenues/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const getVistedVenues = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/VistedVenues/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
+const getNextNightOut = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/api/NexyNightOutVenues/`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(data))
+    .catch(reject);
+});
+
 export {
   getVenuesByCityId,
   getCityById,
@@ -209,4 +245,7 @@ export {
   getTypesById,
   getVenuesByVenueZipcodeId,
   getZipCodesById,
+  getLikedVenues,
+  getVistedVenues,
+  getNextNightOut,
 };
