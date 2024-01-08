@@ -97,7 +97,7 @@ const getHoursById = (id) => new Promise((resolve, reject) => {
 });
 
 const getVenuesByPaymentTypeId = (id) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/VenuesByPaymentTypeId/${id}`, {
+  fetch(`${dbUrl}/api/PaymentId/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const getVenuesByPaymentTypeId = (id) => new Promise((resolve, reject) => {
 });
 
 const getPaymentsById = (id) => new Promise((resolve, reject) => {
-  fetch(`${dbUrl}/api/PaymentTypeId/${id}`, {
+  fetch(`${dbUrl}/api/Payments/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',

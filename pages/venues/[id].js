@@ -34,6 +34,7 @@ export default function orderDetails() {
               <h3>About this Venue: {venueDetails.description} </h3>
               <Link href={`/venues/edit/${id}`} passHref>
           <Button variant="info">Edit Venue</Button>
+          
         </Link>
               <Link href="/peoplegoings/new" passHref>
         <Button> Add A Person Going</Button>

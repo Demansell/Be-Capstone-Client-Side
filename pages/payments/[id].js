@@ -10,7 +10,7 @@ export default function PaymentDetails() {
   const { id } = router.query;
 
   useEffect(() => {
-    getPaymentsById(id).then (setPaymentDetails);
+    getPaymentsById(id).then(setPaymentDetails);
   }, [id]);
 
   useEffect(() => {
@@ -28,7 +28,7 @@ return (
             <h1>{paymentDetails.name}'s Venues</h1> <p style={{ marginButton: '100px' }}></p>
             <div className="CommentCardShow d-flex flex-wrap" style={{ marginTop: '20px' }}>
               {venues.map((venue) => (
-                <VenueCard key={venue.paymentTypeId} venueObj={venue} onUpdate={getVenuesByPaymentTypeId} />
+                <VenueCard key={venue.paymentId} venueObj={venue} onUpdate={getVenuesByPaymentTypeId} />
                 ))}
                 </div>
             <h5></h5>
