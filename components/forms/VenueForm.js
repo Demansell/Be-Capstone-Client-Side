@@ -143,6 +143,7 @@ function VenueForm({ venueObj }) {
         <Form.Control
           type="text"
           placeholder="Enter Venue Description"
+          style={{ height: '100px' }}
           name="description"
           value={formInput.description}
           onChange={handleChange}
@@ -202,7 +203,7 @@ function VenueForm({ venueObj }) {
       <FloatingLabel controlId="floatingSelect" label="Payment">
         <Form.Select
           aria-label="Payment Type"
-          name="venueZipcodeId"
+          name="paymentId"
           onChange={handleChange}
           className="mb-3"
           value={formInput.paymentId}
@@ -302,10 +303,10 @@ function VenueForm({ venueObj }) {
       <FloatingLabel controlId="floatingSelect" label="Type">
         <Form.Select
           aria-label="Type"
-          name="paymentId"
+          name="venueTypeId"
           onChange={handleChange}
           className="mb-3"
-          value={formInput.paymentId}
+          value={formInput.venueTypeId}
         >
           <option value="">Select a Type of Venue</option>
           {types.map((type) => (

@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
@@ -24,10 +26,9 @@ function VenueCard({ venueObj }) {
           <Card.Title className="align-self-center text-center fs-4">{venueObj.venueName}</Card.Title>
         </div>
       </Link>
-
       <Card.Body>
         <Card.Text>
-          {venueObj.description}
+          Phone Number: {venueObj.venuePhoneNumber}
         </Card.Text>
         <Button variant="dark" onClick={deleteVenue}>
           Delete
@@ -44,6 +45,7 @@ VenueCard.propTypes = {
     id: PropTypes.number,
     description: PropTypes.string,
     venueImage: PropTypes.string,
+    venuePhoneNumber: PropTypes.number,
   }).isRequired,
   // onUpdate: PropTypes.func.isRequired,
 

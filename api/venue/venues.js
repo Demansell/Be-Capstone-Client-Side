@@ -168,6 +168,19 @@ const getAllPaymentTypes = () => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
+const getrandomVenue = () => new Promise((resolve, reject) => {
+  fetch(`${dbUrl}/randomVenue`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
 export {
   getAllVenues,
   getSingleVenue,
@@ -183,4 +196,5 @@ export {
   getAllPrices,
   getAllVenueTypes,
   getAllPaymentTypes,
+  getrandomVenue,
 };
